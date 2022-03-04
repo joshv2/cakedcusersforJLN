@@ -87,6 +87,9 @@ class UsersTable extends Table
             'foreignKey' => 'user_id',
             'className' => 'CakeDC/Users.SocialAccounts',
         ]);
+        $this->belongsToMany('Types', [
+            'foreignKey' => 'user_id', 'targetForeignKey' => 'type_id',
+        'joinTable' => 'types_users']);
     }
 
     /**

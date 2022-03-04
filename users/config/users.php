@@ -43,11 +43,11 @@ $config = [
         ],
         'reCaptcha' => [
             // reCaptcha key goes here
-            'key' => null,
+            'key' => '6LdXhXwUAAAAAE6bcodYGt-FgNvlUJdcme3WprFh',
             // reCaptcha secret
-            'secret' => null,
+            'secret' => '6LdXhXwUAAAAAI_q-e-CrqD3hB77OJiEKunESnOv',
             // use reCaptcha in registration
-            'registration' => false,
+            'registration' => true,
             // use reCaptcha in login, valid values are false, true
             'login' => false,
         ],

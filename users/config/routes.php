@@ -35,6 +35,7 @@ $routes->connect('/logout', UsersUrl::actionRouteParams('logout'));
 $routes->connect('/link-social/*', UsersUrl::actionRouteParams('linkSocial'));
 $routes->connect('/callback-link-social/*', UsersUrl::actionRouteParams('callbackLinkSocial'));
 $routes->connect('/register', UsersUrl::actionRouteParams('register'));
+$routes->connect('/post-register', UsersUrl::actionRouteParams('postregister'));
 
 $oauthPath = Configure::read('OAuth.path');
 if (is_array($oauthPath)) {

@@ -36,6 +36,11 @@ trait RegisterTrait
      */
     public function register()
     {
+        
+        array_map([$this, 'loadModel'], ['Types']);
+        $sitelang = $this->languageinfo();
+        $types = $this->Types->top_types_for_home($sitelang->id);
+        
         if (!Configure::read('Users.Registration.active')) {
             throw new NotFoundException();
         }
@@ -65,9 +70,9 @@ trait RegisterTrait
             'options' => $options,
             'userEntity' => $user,
         ]);
-
         $result = $event->getResult();
         if ($result instanceof EntityInterface) {
+            echo "Reached Here2";
             $data = $result->toArray();
             $data['password'] = $requestData['password'] ?? null; //since password is a hidden property
             $userSaved = $usersTable->register($user, $data, $options);
@@ -84,7 +89,7 @@ trait RegisterTrait
             return $this->redirect($event->getResult());
         }
 
-        $this->set(compact('user'));
+        $this->set(compact('user', 'types'));
         $this->set('_serialize', ['user']);
 
         if (!$this->getRequest()->is('post')) {
@@ -133,10 +138,10 @@ trait RegisterTrait
     protected function _afterRegister(EntityInterface $userSaved)
     {
         $validateEmail = (bool)Configure::read('Users.Email.validate');
-        $message = __d('cake_d_c/users', 'You have registered successfully, please log in');
-        if ($validateEmail) {
+        //$message = __d('cake_d_c/users', 'You have registered successfully, please log in');
+        /*if ($validateEmail) {
             $message = __d('cake_d_c/users', 'Please validate your account before log in');
-        }
+        }*/
         $event = $this->dispatchEvent(Plugin::EVENT_AFTER_REGISTER, [
             'user' => $userSaved,
         ]);
@@ -144,9 +149,9 @@ trait RegisterTrait
         if ($result instanceof Response) {
             return $result;
         }
-        $this->Flash->success($message);
+        //$this->Flash->success($message);
 
-        return $this->redirect(['action' => 'login']);
+        return $this->redirect(['action' => 'postregister']);
     }
 
     /**
