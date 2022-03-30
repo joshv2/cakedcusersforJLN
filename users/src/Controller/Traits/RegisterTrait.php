@@ -39,7 +39,7 @@ trait RegisterTrait
         
         array_map([$this, 'loadModel'], ['Types']);
         $sitelang = $this->languageinfo();
-        $types = $this->Types->top_types_for_home($sitelang->id);
+        $types = $this->Types->top_types_for_registration($sitelang->id);
         
         if (!Configure::read('Users.Registration.active')) {
             throw new NotFoundException();

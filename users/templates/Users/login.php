@@ -12,13 +12,13 @@
 use Cake\Core\Configure;
 
 ?>
-<div class="users form">
+<div class="users form" id="centeredform">
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
-    <fieldset>
-        <legend><?= __d('cake_d_c/users', 'Please enter your username and password') ?></legend>
-        <?= $this->Form->control('email', ['label' => __d('cake_d_c/users', 'Email'), 'required' => true]) ?>
-        <?= $this->Form->control('password', ['label' => __d('cake_d_c/users', 'Password'), 'required' => true]) ?>
+    <fieldset id='loginfieldset'>
+        <p><?= __d('cake_d_c/users', 'Already registered? Login Here:') ?></p>
+        <?= $this->Form->control('email', ['placeholder' => 'Email address', 'label' => false, 'required' => true, 'id'=> 'loginemail']) ?>
+        <?= $this->Form->control('password', ['placeholder' => 'Password', 'label' => false, 'required' => true, 'id'=> 'loginpassword']) ?>
         <?php
         if (Configure::read('Users.reCaptcha.login')) {
             echo $this->User->addReCaptcha();
@@ -33,18 +33,21 @@ use Cake\Core\Configure;
         ?>
         <?php
         $registrationActive = Configure::read('Users.Registration.active');
+        
+        echo '</br><p>Not yet registered?</p>';
+        
         if ($registrationActive) {
-            echo $this->Html->link(__d('cake_d_c/users', 'Register'), ['action' => 'register']);
+            echo $this->Html->link(__d('cake_d_c/users', 'Register'), ['action' => 'register']) . ' to record words or sentences';
         }
         if (Configure::read('Users.Email.required')) {
             if ($registrationActive) {
-                echo ' | ';
+                echo ' </br></br> ';
             }
             echo $this->Html->link(__d('cake_d_c/users', 'Reset Password'), ['action' => 'requestResetPassword']);
         }
         ?>
     </fieldset>
     <?= implode(' ', $this->User->socialLoginList()); ?>
-    <?= $this->Form->button(__d('cake_d_c/users', 'Login')); ?>
+    <?= $this->Form->button(__d('cake_d_c/users', 'Login'), ['class' => 'button blue2']); ?>
     <?= $this->Form->end() ?>
 </div>
