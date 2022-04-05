@@ -16,7 +16,7 @@ use Cake\Core\Configure;
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
     <fieldset id='loginfieldset'>
-        <p><?= __d('cake_d_c/users', 'Already registered? Login Here:') ?></p>
+        <p><?= __d('cake_d_c/users', 'Already registered? Login here:') ?></p>
         <?= $this->Form->control('email', ['placeholder' => 'Email address', 'label' => false, 'required' => true, 'id'=> 'loginemail']) ?>
         <?= $this->Form->control('password', ['placeholder' => 'Password', 'label' => false, 'required' => true, 'id'=> 'loginpassword']) ?>
         <?php
