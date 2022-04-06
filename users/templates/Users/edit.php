@@ -40,7 +40,7 @@ $Users = ${$tableAlias};
         echo $this->Form->label('Role ');
             echo $this->Form->select(
                 'role',
-                ['Moderator', 'Submitter']
+                ['superuser' => 'Moderator', 'user' => 'Reviewer', 'contributor' => 'Submitter']
             );
             echo $this->Form->control('active', [
                 'type' => 'checkbox',

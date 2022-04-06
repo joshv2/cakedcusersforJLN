@@ -28,7 +28,7 @@
             echo $this->Form->label('Role ');
             echo $this->Form->select(
                 'role',
-                ['1' => 'Moderator', '2' => 'Reviewer', '3' => 'Submitter']
+                ['superuser' => 'Moderator', 'user' => 'Reviewer', 'contributor' => 'Submitter']
             );
             echo $this->Form->control('active', [
                 'type' => 'checkbox',
