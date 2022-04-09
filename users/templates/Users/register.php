@@ -32,8 +32,8 @@ use Cake\Core\Configure;
         if (Configure::read('Users.Tos.required')) {
             echo $this->Form->control('tos', ['type' => 'checkbox', 'label' => __d('cake_d_c/users', 'Accept TOS conditions?'), 'required' => true]);
         }
-        echo "<p>The Jewish English Lexicon lists several categories of types of Jews who tend to use specific words or pronunciations. With which of the following categories do you identify? (Check all that apply)</p>";
-        echo $this->Form->control('types._ids', ['type' => 'select', 'multiple' => 'checkbox', 'label' => 'Categories (optional. We ask this so we’ll gain a better understanding of who’s using the website):']);
+        echo "<p>The Jewish English Lexicon lists several categories of types of Jews who tend to use specific words or pronunciations. With which of the following categories do you identify? (Check all that apply - optional)</p>";
+        echo $this->Form->control('types._ids', ['type' => 'select', 'multiple' => 'checkbox', 'label' => false]);
         
         echo $this->Form->control('additional_data', ['label' => 'Other ']);
 
