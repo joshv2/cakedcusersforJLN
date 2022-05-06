@@ -18,7 +18,7 @@
     <?= $this->Form->create($user) ?>
     <fieldset>
         <legend><?= __d('cake_d_c/users', 'Please enter your email or username to reset your password') ?></legend>
-        <?= $this->Form->control('reference') ?>
+        <?= $this->Form->control('reference', ['label' => ['text' => __('Email or Username')]]) ?>
     </fieldset>
     <?= $this->Form->button(__d('cake_d_c/users', 'Submit')); ?>
     <?= $this->Form->end() ?>
