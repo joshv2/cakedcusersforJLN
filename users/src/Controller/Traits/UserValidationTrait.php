@@ -46,7 +46,7 @@ trait UserValidationTrait
                             if (!empty($event) && is_array($event->getResult())) {
                                 return $this->redirect($event->getResult());
                             }
-                            $this->Flash->success(__d('cake_d_c/users', 'User account validated successfully. If you registered on an iPhone and would like to record, please login on Chrome (do not click the validation link again). Thank you.'));
+                            $this->Flash->success(__d('cake_d_c/users', 'User account validated successfully.'));
                         } else {
                             $this->Flash->error(__d('cake_d_c/users', 'User account could not be validated'));
                         }
