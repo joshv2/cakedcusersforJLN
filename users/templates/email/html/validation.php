@@ -42,7 +42,7 @@ Thank you for registering to record for the Jewish English Lexicon. You can logi
 <ul>
     <li>Make sure you are in a quiet room with little to no background noise. Watch out for things like fans or refrigerators humming in the background!</li>
     <li>If you have an external microphone, please use that; if not, the built-in microphone on your device is OK as well.</li>
-    <li>We recommend using a computer (laptop or desktop) rather than your phone or tablet. If it’s easier to use your phone, that’s OK.</li>
+    <li>At this time, recording is not supported on iPhones or iPads. If you registered to record on one of these devices, please login on a different device.</li>
 </ul>
 <p>
     <?= __d('cake_d_c/users', 'Thank you,') ?></br>
