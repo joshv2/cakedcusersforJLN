@@ -48,7 +48,7 @@ trait SimpleCrudTrait
         $table = $this->loadModel();
         $tableAlias = $table->getAlias();
         $entity = $table->get($id, [
-            'contain' => [],
+            'contain' => ['Types'],
         ]);
         $this->set($tableAlias, $entity);
         $this->set('tableAlias', $tableAlias);

@@ -44,6 +44,7 @@ class User extends Entity
         'is_superuser' => true,
         'role' => true,
         'types' => true,
+        'additional_data' => true,
     ];
 
     /**

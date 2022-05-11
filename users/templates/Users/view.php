@@ -63,7 +63,7 @@ $Users = ${$tableAlias};
         </div>
     </div>
 </div>
-<div class="related row">
+<!--<div class="related row">
     <div class="column large-12">
         <h4 class="subheader"><?= __d('cake_d_c/users', 'Social Accounts') ?></h4>
         <?php if (!empty($Users->social_accounts)) : ?>
@@ -86,5 +86,18 @@ $Users = ${$tableAlias};
                 <?php endforeach; ?>
             </table>
         <?php endif; ?>
+    </div>
+</div>-->
+<div class="related row">
+    <div class="column large-12">
+        <h4 class="subheader"><?= __d('cake_d_c/users', 'Categories') ?></h4>
+        
+        <?php if (!empty($Users->types)) : ?>
+            
+            <?php foreach ($Users->types as $uTypes) : ?>
+                <?= h($uTypes->type) ?></br>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?= h($Users->additional_data) ?></br>
     </div>
 </div>
